@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Nuestra Graduación!</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#0B132B',
+                            900: '#070B19',
+                        },
+                        gold: {
+                            300: '#F3E5AB',
+                            400: '#D4AF37',
+                            500: '#C5A028',
+                            600: '#AA820A',
+                        },
+                        cream: '#FAF8F5',
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFE58F 0%, #D4AF37 50%, #996515 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(11, 19, 43, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-navy-900 text-cream font-sans antialiased selection:bg-gold-500 selection:text-navy-900 min-h-screen flex flex-col justify-between">
+
+    <header class="relative min-h-screen flex items-center justify-center text-center px-4 overflow-hidden py-12">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-navy-800 via-navy-900 to-black opacity-90"></div>
+            <div class="absolute -top-40 -left-40 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto space-y-8 py-8 border border-gold-400/30 p-6 md:p-12 rounded-2xl glass-card shadow-2xl">
+            <div class="flex justify-center">
+                <div class="p-4 rounded-full bg-navy-800 border border-gold-400/40 text-gold-400 shadow-lg">
+                    <i data-lucide="graduation-cap" class="w-12 h-12 md:w-16 md:h-16"></i>
+                </div>
+            </div>
+
+            <span class="inline-block text-gold-400 font-serif tracking-[0.3em] text-sm md:text-base uppercase font-semibold">
+                Celebración Académica
+            </span>
+
+            <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-wide gold-gradient-text">
+                ¡Estás invitado a nuestra graduación!
+            </h1>
+
+            <p class="text-gray-300 max-w-xl mx-auto text-base md:text-lg font-light leading-relaxed">
+                Acompáñanos a celebrar el cierre de una importante etapa y el inicio de un nuevo camino lleno de éxitos y metas alcanzadas.
+            </p>
+
+            <!-- Cuenta Regresiva -->
+            <div class="pt-6 border-t border-gold-400/20">
+                <p class="text-xs uppercase tracking-widest text-gold-300/80 mb-4 font-serif">Tiempo restante para el evento</p>
+                <div id="countdown" class="grid grid-cols-4 gap-2 sm:gap-4 max-w-md mx-auto text-center">
+                    <div class="bg-navy-800/80 border border-gold-500/30 p-2 sm:p-3 rounded-xl">
+                        <span id="days" class="block font-serif text-xl sm:text-3xl font-bold text-gold-400">00</span>
+                        <span class="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider">Días</span>
+                    </div>
+                    <div class="bg-navy-800/80 border border-gold-500/30 p-2 sm:p-3 rounded-xl">
+                        <span id="hours" class="block font-serif text-xl sm:text-3xl font-bold text-gold-400">00</span>
+                        <span class="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider">Horas</span>
+                    </div>
+                    <div class="bg-navy-800/80 border border-gold-500/30 p-2 sm:p-3 rounded-xl">
+                        <span id="minutes" class="block font-serif text-xl sm:text-3xl font-bold text-gold-400">00</span>
+                        <span class="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider">Min</span>
+                    </div>
+                    <div class="bg-navy-800/80 border border-gold-500/30 p-2 sm:p-3 rounded-xl">
+                        <span id="seconds" class="block font-serif text-xl sm:text-3xl font-bold text-gold-400">00</span>
+                        <span class="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider">Seg</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#rsvp" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 text-navy-900 font-semibold hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-300 transform hover:-translate-y-0.5">
+                    Confirmar Asistencia
+                </a>
+                <a href="#detalles" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-transparent border border-gold-400/60 text-gold-300 hover:bg-gold-400/10 transition-all duration-300">
+                    Ver Detalles
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="detalles" class="py-16 px-4 bg-navy-800/50 relative border-y border-gold-400/10">
+        <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Fecha (Sin hora) -->
+            <div class="glass-card p-8 rounded-2xl text-center space-y-4 border border-gold-400/20 hover:border-gold-400/50 transition duration-300">
+                <div class="w-14 h-14 mx-auto rounded-full bg-gold-400/10 flex items-center justify-center text-gold-400">
+                    <i data-lucide="calendar" class="w-7 h-7"></i>
+                </div>
+                <h3 class="font-serif text-2xl text-gold-400 font-semibold">Fecha</h3>
+                <p class="text-3xl font-bold text-white">6 de Diciembre</p>
+            </div>
+
+            <!-- Lugar -->
+            <div class="glass-card p-8 rounded-2xl text-center space-y-4 border border-gold-400/20 hover:border-gold-400/50 transition duration-300">
+                <div class="w-14 h-14 mx-auto rounded-full bg-gold-400/10 flex items-center justify-center text-gold-400">
+                    <i data-lucide="map-pin" class="w-7 h-7"></i>
+                </div>
+                <h3 class="font-serif text-2xl text-gold-400 font-semibold">Lugar</h3>
+                <p class="text-3xl font-bold text-white">Salón Pacifico</p>
+                <p class="text-sm text-gray-400">Salón de Eventos</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 max-w-5xl mx-auto text-center space-y-8">
+        <div class="space-y-2">
+            <h2 class="font-serif text-3xl md:text-4xl gold-gradient-text font-bold">¿Cómo Llegar?</h2>
+            <p class="text-gray-300 text-sm md:text-base">Te esperamos en el Salón de Eventos Pacifico para compartir una noche inolvidable.</p>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden border border-gold-400/30 shadow-2xl glass-card p-2">
+            <div class="w-full h-80 rounded-xl overflow-hidden bg-navy-800 relative">
+                <iframe 
+                    title="Ubicación Salón Pacifico"
+                    class="w-full h-full border-0 filter grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition duration-500" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13393.284729124!2d-60.650000!3d-32.950000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDU3JzAwLjAiUyA2M8KwMzknMDAuMCJX!5e0!3m2!1ses!2sar!4v1620000000000!5m2!1ses!2sar" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+            <div class="p-4 flex flex-col sm:flex-row justify-between items-center gap-4 bg-navy-900/60 rounded-b-xl">
+                <span class="text-sm text-gray-300 font-light flex items-center gap-2">
+                    <i data-lucide="navigation" class="w-4 h-4 text-gold-400"></i>
+                    Salón Pacifico - Zona de Eventos
+                </span>
+                <a 
+                    href="https://maps.google.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="px-5 py-2 text-xs font-semibold rounded-full border border-gold-400/50 text-gold-300 hover:bg-gold-400 hover:text-navy-900 transition duration-300 flex items-center gap-2">
+                    <span>Abrir en Google Maps</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="rsvp" class="py-16 px-4 bg-navy-800/40 relative border-t border-gold-400/10">
+        <div class="max-w-xl mx-auto glass-card p-6 md:p-10 rounded-2xl shadow-2xl space-y-6">
+            <div class="text-center space-y-2">
+                <h2 class="font-serif text-3xl font-bold gold-gradient-text">Confirmar Asistencia</h2>
+                <p class="text-sm text-gray-300">Al presionar el botón se enviará tu respuesta directamente por WhatsApp.</p>
+            </div>
+
+            <!-- Alerta visual de redirigiendo -->
+            <div id="rsvpAlert" class="hidden p-4 rounded-xl bg-gold-400/20 border border-gold-400/60 text-gold-300 text-sm text-center font-medium animate-pulse">
+                <div class="flex items-center justify-center gap-2">
+                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                    <span>¡Muchas gracias! Redirigiendo a WhatsApp...</span>
+                </div>
+            </div>
+
+            <form id="rsvpForm" class="space-y-4">
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-gold-300/80 mb-2 font-semibold">Tu Nombre Completo</label>
+                    <input 
+                        type="text" 
+                        id="guestName"
+                        required 
+                        placeholder="Ej: Juan Pérez"
+                        class="w-full px-4 py-3 rounded-xl bg-navy-900/80 border border-gold-500/30 text-white placeholder-gray-500 focus:outline-none focus:border-gold-400 transition">
+                </div>
+
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-gold-300/80 mb-2 font-semibold">¿Asistirás al evento?</label>
+                    <select id="attendanceStatus" class="w-full px-4 py-3 rounded-xl bg-navy-900/80 border border-gold-500/30 text-white focus:outline-none focus:border-gold-400 transition">
+                        <option value="¡Sí, con mucho gusto asistiré!">¡Sí, con mucho gusto asistiré!</option>
+                        <option value="Lamentablemente no podré asistir">Lamentablemente no podré asistir</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-gold-300/80 mb-2 font-semibold">Mensaje u Observaciones (Opcional)</label>
+                    <textarea 
+                        id="guestMessage"
+                        rows="3" 
+                        placeholder="Escribe algún comentario o dieta especial..."
+                        class="w-full px-4 py-3 rounded-xl bg-navy-900/80 border border-gold-500/30 text-white placeholder-gray-500 focus:outline-none focus:border-gold-400 transition"></textarea>
+                </div>
+
+                <button 
+                    type="submit" 
+                    class="w-full py-4 rounded-xl bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 text-navy-900 font-bold tracking-wide hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                    <i data-lucide="send" class="w-5 h-5"></i>
+                    <span>Confirmar por WhatsApp</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-xs text-gray-500 border-t border-gold-400/10 bg-navy-900">
+        <p class="font-serif text-gold-400/70">Graduación 6 de Diciembre • Salón Pacifico</p>
+        <p class="mt-1">¡Esperamos contar con tu presencia!</p>
+    </footer>
+
+    <script>
+        // Inicializar Iconos
+        lucide.createIcons();
+
+        // Cuenta Regresiva (6 de Diciembre)
+        function updateCountdown() {
+            const now = new Date();
+            let eventYear = now.getFullYear();
+            
+            let eventDate = new Date(`December 6, ${eventYear} 20:30:00`);
+            if (now > eventDate) {
+                eventDate = new Date(`December 6, ${eventYear + 1} 20:30:00`);
+            }
+
+            const currentTime = now.getTime();
+            const difference = eventDate.getTime() - currentTime;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById('days').innerText = days.toString().padStart(2, '0');
+                document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Envío de Formulario RSVP a WhatsApp
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('guestName').value.trim();
+            const status = document.getElementById('attendanceStatus').value;
+            const message = document.getElementById('guestMessage').value.trim();
+            const phoneNumber = "5493364614789";
+
+            // Construcción del mensaje formateado
+            let text = `🎓 *CONFIRMACIÓN DE ASISTENCIA A LA GRADUACIÓN*\n\n`;
+            text += `👤 *Nombre:* ${name}\n`;
+            text += `📌 *Asistencia:* ${status}\n`;
+            
+            if (message) {
+                text += `💬 *Mensaje/Observación:* ${message}\n`;
+            }
+
+            // Mostrar mensaje visual de confirmación en la web
+            const alertBox = document.getElementById('rsvpAlert');
+            alertBox.classList.remove('hidden');
+
+            // Abrir WhatsApp con el texto codificado
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+            
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+                alertBox.classList.add('hidden');
+            }, 1200);
+        });
+    </script>
+</body>
+</html>
